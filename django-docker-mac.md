@@ -17,7 +17,7 @@
 * Using Docker Compose (Recommended)
 At the project folder open you terminal, then enter the command:
   ```
-  docker-compose run
+  docker-compose up
   ```
  Now, you can access the server at the default location: **http://localhost:8000**
  
@@ -33,9 +33,19 @@ At the project folder open you terminal, then enter the command:
   ```
     
 ---------------------
- ## 3. Executing commands
- * Migratiing database migration
- 
+ ## 3. Executing commands with docker compose
+ To run a command at a running container you just need to following the syntax:
+   ```
+  docker-compose exec [SERVICE] [COMMAND]
+  ```
+  ### Examples
+ * Migratiing database
+  ```
+  docker-compose exec server python manage.py makemigrations
+  docker-compose exec server python manage.py migrate
+  ```
  * Create a Super User
- 
+  ```
+  docker-compose exec server python manage.py createsuperuser
+  ```
  
